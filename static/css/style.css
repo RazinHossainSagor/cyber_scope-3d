@@ -1,0 +1,236 @@
+/* Basic dark theme */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0b1020;
+  color: #d7e3ff;
+  font-family: Arial, sans-serif;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #11182f;
+  border-bottom: 1px solid #1f2a4d;
+}
+
+.topbar h1 {
+  color: #00e5ff;
+  font-size: 22px;
+}
+
+.mode {
+  background: #1f2a4d;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - 70px);
+}
+
+.panel {
+  background: #11182f;
+  border: 1px solid #1f2a4d;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.panel h2 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Network panel: 3D view jeno puro jayga nei */
+.network {
+  display: flex;
+  flex-direction: column;
+}
+
+#network-view {
+  position: relative; /* node-info box er jonno */
+  flex: 1;
+  min-height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Node details box (3D er upor floating) */
+.node-info {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  min-width: 170px;
+  padding: 10px 14px;
+  background: rgba(17, 24, 47, 0.92);
+  border: 1px solid #00e5ff;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.node-info b {
+  color: #00e5ff;
+  font-size: 16px;
+}
+
+.node-info p {
+  margin-top: 4px;
+}
+
+.node-info .ok {
+  color: #69f0ae;
+}
+
+.node-info .bad {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Right side: duita panel upore niche */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.sidebar .panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stats div {
+  flex: 1;
+  background: #1f2a4d;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.stats b {
+  display: block;
+  font-size: 20px;
+  color: #00e5ff;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 8px;
+  background: #00e5ff;
+  color: #0b1020;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background: #69f0ff;
+}
+
+/* Export links */
+.export {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.export a {
+  flex: 1;
+  padding: 7px;
+  text-align: center;
+  font-size: 12px;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.export a:hover {
+  background: #1f2a4d;
+}
+
+/* Chart */
+.chart-box {
+  position: relative;
+  height: 130px;
+  margin-bottom: 12px;
+}
+
+/* Alert + event list */
+#alert-list,
+#event-list {
+  list-style: none;
+}
+
+.alert,
+.event {
+  background: #1f2a4d;
+  border-left: 4px solid #ffc107;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.alert.high {
+  border-left-color: #ff5252;
+}
+
+.event {
+  border-left-color: #00e5ff;
+}
+
+.alert p,
+.event p {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.empty {
+  color: #7f8fb5;
+}
+
+/* Mobile e ek column */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .sidebar .panel {
+    max-height: 400px;
+  }
+}

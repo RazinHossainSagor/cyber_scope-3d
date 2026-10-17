@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberScope 3D</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Chart.js (version fixed: 4.4.1) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Three.js (version fixed: 0.160.0) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>CyberScope 3D</h1>
+    <span class="mode">Simulation Mode</span>
+  </header>
+
+  <main class="layout">
+    <!-- 3D network -->
+    <section class="panel network">
+      <h2>Network View</h2>
+      <div id="network-view">
+        <!-- Node click korle ei box dekhabe -->
+        <div id="node-info" class="node-info hidden">
+          <b id="node-name"></b>
+          <p>Type: <span id="node-type"></span></p>
+          <p>IP: <span id="node-ip"></span></p>
+          <p>Status: <span id="node-status"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right side: alerts + events -->
+    <div class="sidebar">
+      <section class="panel alerts">
+        <h2>Alerts</h2>
+
+        <div class="stats">
+          <div>Events <b id="stat-events">0</b></div>
+          <div>Alerts <b id="stat-alerts">0</b></div>
+          <div>High <b id="stat-high">0</b></div>
+        </div>
+
+        <div class="buttons">
+          <button data-scenario="normal">Normal</button>
+          <button data-scenario="brute_force">Brute Force</button>
+          <button data-scenario="port_scan">Port Scan</button>
+          <button data-scenario="traffic_spike">Traffic Spike</button>
+        </div>
+
+        <div class="export">
+          <a href="/api/export/events">Export Events CSV</a>
+          <a href="/api/export/alerts">Export Alerts CSV</a>
+        </div>
+
+        <div class="chart-box">
+          <canvas id="severity-chart"></canvas>
+        </div>
+
+        <ul id="alert-list"></ul>
+      </section>
+
+      <section class="panel events">
+        <h2>Recent Events</h2>
+        <ul id="event-list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="{{ url_for('static', filename='js/network3d.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
