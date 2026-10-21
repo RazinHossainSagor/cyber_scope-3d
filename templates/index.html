@@ -30,13 +30,16 @@
     <!-- 3D network -->
     <section class="panel network">
       <h2>Network View</h2>
-      <div id="network-view">
-        <!-- Node click korle ei box dekhabe -->
+      <div id="network-view"></div>
+
+      <!-- Node click korle details ekhane dekhabe (3D er niche) -->
+      <div class="node-bar">
+        <span id="node-hint" class="hint">Click any device in the 3D view to see its details</span>
         <div id="node-info" class="node-info hidden">
           <b id="node-name"></b>
-          <p>Type: <span id="node-type"></span></p>
-          <p>IP: <span id="node-ip"></span></p>
-          <p>Status: <span id="node-status"></span></p>
+          <span>Type: <span id="node-type"></span></span>
+          <span>IP: <span id="node-ip"></span></span>
+          <span>Status: <span id="node-status"></span></span>
         </div>
       </div>
     </section>

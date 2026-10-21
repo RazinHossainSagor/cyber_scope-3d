@@ -60,34 +60,40 @@ body {
 }
 
 #network-view {
-  position: relative; /* node-info box er jonno */
+  position: relative;
   flex: 1;
   min-height: 300px;
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* Node details box (3D er upor floating) */
-.node-info {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 10;
-  min-width: 170px;
+/* Node details bar (3D view er niche, kono kichur sathe dhakka khay na) */
+.node-bar {
+  margin-top: 10px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
   padding: 10px 14px;
-  background: rgba(17, 24, 47, 0.92);
-  border: 1px solid #00e5ff;
+  background: #0e1630;
+  border: 1px solid #1f2a4d;
   border-radius: 8px;
   font-size: 13px;
+}
+
+.node-bar .hint {
+  color: #7f8fb5;
+}
+
+.node-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
 }
 
 .node-info b {
   color: #00e5ff;
   font-size: 16px;
-}
-
-.node-info p {
-  margin-top: 4px;
 }
 
 .node-info .ok {
@@ -100,7 +106,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* Right side: duita panel upore niche */
@@ -228,6 +234,10 @@ body {
   .layout {
     grid-template-columns: 1fr;
     height: auto;
+  }
+
+  #network-view {
+    min-height: 420px;
   }
 
   .sidebar .panel {
